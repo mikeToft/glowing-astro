@@ -1,18 +1,12 @@
 ---
-import Navigation from '../components/Navigation.astro';
+import '../styles/global.css';
+import MainLayout from '../layouts/MainLayout.astro';
+const pageTitle = 'My brand new Astro website 🚀';
 ---
 
-<html lang='en'>
-	<head>
-		<meta charset='utf-8' />
-		<link rel='icon' type='image/svg+xml' href='/favicon.svg' />
-		<meta name='viewport' content='width=device-width' />
-		<meta name='generator' content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<Navigation />
-		<h1>George's Astro Site</h1>
-		<p>Hello world</p>
-	</body>
-</html>
+<MainLayout pageTitle={pageTitle}>
+	<article>
+		<h2>This is an H2 on the home page</h2>
+		<p>Welcome to this brand new website. It is ready for use.</p>
+	</article>
+</MainLayout>

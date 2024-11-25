@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+import MainLayout from '../layouts/MainLayout.astro';
+import NoteLink from '../components/NoteLink.astro';
+const allNotes = await getCollection('notes');
+const pageTitle = 'Your learning journey in code';
+console.log(allNotes);
+---
+
+<MainLayout pageTitle={pageTitle}>
+	<h2>This is a page to list your code notes</h2>
+	<p>What I love about code ...</p>
+
+	{
+		allNotes.map((post) => {
+			return (
+				// <a href={post.slug}>
+				// 	<h2>{post.data.title}</h2>
+				// 	<p>{post.data.description}</p>
+				// </a>
+				<NoteLink
+					url={`/notes/${post.slug}`}
+					title={post.data.title}
+					description={post.data.description}
+				/>
+			);
+		})
+	}
+</MainLayout>

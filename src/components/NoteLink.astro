@@ -1,0 +1,30 @@
+---
+const { title, url, description } = Astro.props;
+---
+
+<li>
+	<a href={url}>
+		<div class='note'>
+			<h2>{title}</h2>
+			<p>{description}</p>
+		</div>
+	</a>
+</li>
+
+<style>
+	li {
+		list-style-type: none;
+		margin: 1rem;
+	}
+	.note {
+		background-color: azure;
+		padding: 8px 16px;
+		border-radius: 6px;
+	}
+	.note p {
+		color: #333;
+	}
+	a {
+		text-decoration: none;
+	}
+</style>
