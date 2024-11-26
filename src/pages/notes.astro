@@ -6,9 +6,10 @@ import NoteLink from '../components/NoteLink.astro';
 import TagLinks from '../components/TagLinks.astro';
 const allNotes = await getCollection('notes');
 const pageTitle = 'A learning journey';
+const pageDescription = 'A list of my creative notes';
 ---
 
-<MainLayout pageTitle={pageTitle}>
+<MainLayout pageTitle={pageTitle} pageDescription={pageDescription}>
 	<p>Here are my notes:</p>
 
 	{

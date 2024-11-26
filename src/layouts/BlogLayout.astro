@@ -3,7 +3,10 @@ import MainLayout from './MainLayout.astro';
 const { frontmatter } = Astro.props;
 ---
 
-<MainLayout pageTitle={frontmatter.title}>
+<MainLayout
+	pageTitle={frontmatter.title}
+	pageDescription={frontmatter.description}
+>
 	<p class='description'><em>{frontmatter.description}</em></p>
 	<slot />
 </MainLayout>
