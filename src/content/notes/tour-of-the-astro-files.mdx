@@ -1,0 +1,108 @@
+---
+title: A tour of your website
+description: Introducing you to the code behind the scenes of this website
+author: Mike Toft
+relatedPosts: ''
+image: ''
+alternateText: ''
+tags: ['Read me', 'Astro',]
+date: 2024-11-26
+isPublished: true
+---
+
+import { Image } from 'astro:assets';
+
+
+## Getting started
+
+As you found this code on my [Github glowing-astro repo](https://github.com/mikeToft/glowing-astro) I can only assume you are a developer already. Download the files to a local folder, then open the folder in your code editor. Go to your terminal and navigate to that folder. When in the folder, enter the following in the terminal:
+
+```terminal
+npm run dev
+```
+
+The instructions will point you to open _localhost:4321_ in your chosen browser. Tadaa, the website will appear.
+
+## Get ready to create content
+
+The site is ready for you to start writing and publishing content to the web. To do this, look in the folder structure and find _/src/content/notes_. In the notes folder create a new file with the extension _.mdx_, copy all of the _frontmatter_ below and paste it to the top of your new .mdx file.
+
+```markdown
+---
+title: A tour of your Astro files
+description: Introducing you to the code behind the scenes of this website
+author: ''
+relatedPosts: ''
+image: ''
+alternateText: ''
+tags: ['Read me', 'Astro']
+date: 2024-11-26
+isPublished: true
+---
+```
+
+You will notice _isPublished_ at the end of the frontmatter. For the markdown page to appear on your website the value must be _true_. If you are still working on the content, you might wish to mark _isPublished_ with _false_. 
+
+Underneath the frontmatter you can start writing your content. If you are unfamiliar with markdown please use my [Writing content with Markdown](https://bored-fish.vercel.app/posts/writing-with-markdown/) as a guide or cheatsheet. You will soon learn the markdown syntax and realise that it is much quicker the writing HTML.
+
+## Functionality
+
+### Pages
+
+This website comprises 3 Astro web pages, home (index), about and notes. The files can be found in the _/src/pages/_ folder. You will also see two other folders called _notes_ and _tags_. Do not touch the files in these folders as they control the dynamics of what is displayed on the site. For example, the list of notes on the _Notes_ page displays published your notes in date order with the latest at the top. Ditto the tag lists.
+
+### Components
+
+Reusable components can be found in the  _/src/components/_ folder. You will want to add your name to the Footer component.
+
+```js
+const name = 'Your name';
+```
+
+If you choose to add another astro page such as a _Contact_ page, you will need to add a link to it in the Navigation component.
+
+```html
+ <a href='/'>Home</a>
+ <a href='/about'>About</a>
+ <a href='/notes'>Notes</a>
+ <!--Example new link -->
+ <a href='/contact'>Contact</a>
+```
+
+Notice the _href_ must not include the file extension.
+
+Each component is structured with JavaScript (if used), HTML tags and CSS style tags. Styling is component specific and will not 'bleed' into the wider website.
+
+### Global styling
+
+Global styling can be found at _/src/styles/global.css_ should you want to make adjustments.
+
+## Conclusion
+
+The code provided here is good to go. All you need to do is:
+
+- add some HTML content to your home page (_/src/pages/index.astro_);
+- add some HTML content to your About page (_/src/pages/about.astro_);
+- add your name to the name variable for the footer (_/src/components/Footer.astro_);
+- create markdown _.mdx_ files for your notes;
+- store your website to an online repository;
+- and finally, deploy to the web.
+
+_Enjoy_
+
+## Resources
+
+If you want to know more about Astro check out the following:
+
+- [Astro doumentation](https://docs.astro.build/en/getting-started/)
+- [Using MDX](https://mdxjs.com/docs/using-mdx/)
+- [Tutorial - Store your repository online](https://docs.astro.build/en/tutorial/1-setup/4/)
+- [Tutorial - Deploy your site to the web](https://docs.astro.build/en/tutorial/1-setup/5/)
+- [Images in Astro](https://docs.astro.build/en/guides/images/#images-in-astro-files)
+- [Astro tutorial - build a blog](https://docs.astro.build/en/tutorial/0-introduction/)
+- [Astro Content Collections](https://docs.astro.build/en/guides/content-collections/)
+
+
+
+
+

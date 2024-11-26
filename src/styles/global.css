@@ -1,15 +1,30 @@
+:root {
+  --white: rgb(255, 255, 255);
+  --midWhite: rgb(245, 245, 245);
+  --darkWhite: rgb(235, 235, 235);
+  --black: rgb(0,0,0);
+  --midBlack: (30,30,30);
+  --astro-code-color-text: rgb(169, 218,250);
+  --astro-code-color-background: rgb(31, 31, 31);
+  --astro-code-token-constant: rgb(169, 218, 250);
+  --astro-code-token-string: white;
+  --astro-code-token-comment: rgb(116, 152, 93);
+  --astro-code-token-keyword: rgb(188, 138, 189);
+  --astro-code-token-parameter: seashell;
+  --astro-code-token-function: rgb(213, 212, 169);
+  --astro-code-token-string-expression: rgb(197, 148, 124);
+  --astro-code-token-punctuation: linen;
+  --astro-code-token-link: honeydew;
+}
+
+* {
+  box-sizing: border-box;
+}
+
 html {
-  background-color: #f1f5f9;
+  background-color: var(--white);
   font-family: sans-serif;
-}
-
-html.dark {
-  background-color: #0d0950;
-  color: #fff;
-}
-
-.dark nav a {
-  color: #fff;
+  font-size: 16px;
 }
 
 body {
@@ -18,13 +33,69 @@ body {
   max-width: 80ch;
   padding: 1rem;
   line-height: 1.5;
-}
-
-* {
-  box-sizing: border-box;
+  color: #222;
 }
 
 h1 {
+  margin: 2rem 0 2rem 0;
+  font-size: 2.2rem;
+  font-weight: 300;
+  text-align: center;
+  text-wrap: balance;
+}
+
+h2 {
   margin: 1rem 0;
-  font-size: 2.5rem;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+h3 {
+  margin: 1rem 0;
+  font-size: 1.6rem;
+  font-weight: 300;
+}
+
+h4 {
+  margin: 1rem 0;
+  font-size: 1.4rem;
+  font-weight: 300;
+}
+
+h5 {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+h6 {
+  margin: 1rem 0;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+ul {
+  margin-inline-start: 0;
+  padding-inline-start: 0;
+}
+
+a {
+  color: var(--midBlack);
+}
+
+a:hover {
+  text-decoration: underline;
+  background-color: var(--darkWhite);
+  color: var(--midBlack);
+}
+
+a:visited {
+  color: var(--midBlack);
+}
+
+pre {
+  font-size: 1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: var(--midBlack);
 }

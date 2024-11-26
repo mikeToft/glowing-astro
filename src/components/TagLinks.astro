@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content';
+const allNotes = await getCollection('notes');
+const filteredNotes = allNotes.filter((note) => note.data.isPublished);
+
+const tags = [
+	...new Set(
+		filteredNotes
+			.map((note) => note.data.tags)
+			.flat()
+			.sort()
+	),
+];
+console.log(filteredNotes);
+---
+
+<section>
+	<p>Tagged subjects:</p>
+	<div class='tag-links'>
+		{
+			tags.map((tag) => (
+				<a
+					href={`/tags/${tag}`}
+					aria-label={`Notes about ${tag}`}>{`${tag}`}</a>
+			))
+		}
+	</div>
+</section>
+
+<style>
+	section {
+		margin-top: 4rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--darkWhite);
+	}
+	.tag-links {
+		width: 100%;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 2;
+	}
+	.tag-links a {
+		background-color: var(--midWhite);
+	}
+	.tag-links a:hover {
+		background-color: var(--darkWhite);
+	}
+	a {
+		font-size: 1.2rem;
+		padding: 0.5rem;
+		text-decoration: none;
+		padding: 1rem;
+		margin: 0 0.75rem 0.75rem 0;
+		text-align: center;
+		border-radius: 0.5rem;
+	}
+</style>

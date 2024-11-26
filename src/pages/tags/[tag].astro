@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import MainLayout from '../../layouts/MainLayout.astro';
+import NoteLink from '../../components/NoteLink.astro';
+import TagLinks from '../../components/TagLinks.astro';
+
+export async function getStaticPaths() {
+	const allNotes = await getCollection('notes');
+
+	const uniqueTags = [
+		...new Set(allNotes.map((post) => post.data.tags).flat()),
+	];
+
+	return uniqueTags.map((tag) => {
+		const filteredPosts = allNotes.filter(
+			(post) => post.data.tags.includes(tag) && post.data.isPublished
+		);
+		return {
+			params: { tag },
+			props: { posts: filteredPosts },
+		};
+	});
+}
+
+const { tag } = Astro.params;
+const { posts } = Astro.props;
+---
+
+<MainLayout pageTitle={tag}>
+	<p>Notes tagged with <em>{tag}</em></p>
+	<article>
+		<ul>
+			{
+				posts
+					.sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+					.map((post) => (
+						<NoteLink
+							url={`/notes/${post.slug}`}
+							title={post.data.title}
+							description={post.data.description}
+						/>
+					))
+			}
+		</ul>
+	</article>
+	<TagLinks />
+</MainLayout>

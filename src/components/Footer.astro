@@ -1,7 +1,17 @@
 ---
 const date = new Date().getFullYear();
+const name = 'Your name';
 ---
 
 <footer>
-	<p>&copy {date}</p>
+	<p><em>{name}</em> &copy {date}</p>
 </footer>
+
+<style>
+	footer {
+		text-align: center;
+		margin-top: 4rem;
+		padding-top: 2rem;
+		border-top: 1px solid var(--darkWhite);
+	}
+</style>

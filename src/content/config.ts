@@ -12,6 +12,7 @@ const notesCollection = defineCollection({
     image: z.string().optional(),
     alternateText: z.string().optional(),
     relatedPosts: z.string().optional(),
+    date: z.date(),
     isPublished: z.boolean(),
   }),
 });

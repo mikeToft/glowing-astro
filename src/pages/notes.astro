@@ -1,0 +1,30 @@
+---
+import { getCollection } from 'astro:content';
+import '../styles/global.css';
+import MainLayout from '../layouts/MainLayout.astro';
+import NoteLink from '../components/NoteLink.astro';
+import TagLinks from '../components/TagLinks.astro';
+const allNotes = await getCollection('notes');
+const pageTitle = 'A learning journey';
+---
+
+<MainLayout pageTitle={pageTitle}>
+	<p>Here are my notes:</p>
+
+	{
+		allNotes
+			.sort((a, b) => new Date(b.data.date) - new Date(a.data.date))
+			.map((post) => {
+				if (post.data.isPublished) {
+					return (
+						<NoteLink
+							url={`/notes/${post.slug}`}
+							title={post.data.title}
+							description={post.data.description}
+						/>
+					);
+				}
+			})
+	}
+	<TagLinks />
+</MainLayout>

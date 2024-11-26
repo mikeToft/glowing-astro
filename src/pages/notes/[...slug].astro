@@ -4,6 +4,7 @@ import BlogLayout from '../../layouts/BlogLayout.astro';
 
 export async function getStaticPaths() {
 	const allNotes = await getCollection('notes');
+
 	return allNotes.map((note) => ({
 		params: { slug: note.slug },
 		props: { note },
